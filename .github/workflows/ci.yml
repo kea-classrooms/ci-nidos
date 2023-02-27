@@ -4,6 +4,9 @@ on:
   push: 
     branches: 
       - '**/issue**'
+  pull_request:
+    types:
+      - closed 
 
 permissions:
   checks: write
@@ -31,22 +34,13 @@ jobs:
           ISSUE: ${{ github.event.issue }}
 
   if_merged:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Issue Branch
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Check for merge conflicts
-        run: |
-          git fetch origin master
-          git merge-base --is-ancestor HEAD origin/master
-          if [ $? -eq 0 ]; then
-            echo "No merge conflicts found"
-          else
-            echo "There are merge conflicts, please resolve them"
-            exit 1
-          fi
+    if_merged:
+      if: github.event.pull_request.merged == true
+      runs-on: ubuntu-latest
+      steps:
+      - run: |
+          echo The PR was merged
+          
         
        
     
