@@ -1,6 +1,9 @@
 name: GitHub Classroom Workflow
 
-on: [push]
+on:
+  push: 
+    branches: 
+      - '**/issue**'
 
 permissions:
   checks: write
@@ -9,7 +12,7 @@ permissions:
 
 jobs:
   mainline:
-    name: Autograding
+    name: 'mainline'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,14 +20,11 @@ jobs:
 
   verify_issue:
     runs-on: ubuntu-latest
-    
-    if: startsWith(github.ref, 'refs/heads/issue/') # Only run for issue branches
-    
+    name: 'Verify issue'
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-    - uses: actions/checkout@v2
-    - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
-      env:
-        ISSUE: ${{ github.event.issue.html_url }}
+      - uses: actions/checkout@v2
+    
+    
 
   
