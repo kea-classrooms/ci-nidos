@@ -10,8 +10,7 @@ permissions:
   actions: read
   contents: read
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 jobs:
   mainline:
@@ -26,8 +25,11 @@ jobs:
     name: 'Verify issue'
     steps:
       - uses: actions/checkout@v2
-
-      - run: ${{ github.event.issue.html_url }}
+      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
        
     
     
