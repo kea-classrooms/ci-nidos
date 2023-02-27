@@ -1,9 +1,10 @@
 name: GitHub Classroom Workflow
 
-on: [push]
-  branches:
-    - master
-    - issue/* 
+on:
+  push: 
+    branches:
+      - master
+      - issue/* 
 
 permissions:
   checks: write
