@@ -15,4 +15,16 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "The key is" \\${{ github.sha }} 
 
+verify_issue:
+    runs-on: ubuntu-latest
+    
+    if: startsWith(github.ref, 'refs/heads/issue/') # Only run for issue branches
+    
+    steps:
+    - name: Checkout code
+    - uses: actions/checkout@v2
+    - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+      env:
+        ISSUE: ${{ github.event.issue.html_url }}
+
   
