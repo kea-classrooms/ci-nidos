@@ -24,10 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+      - run: echo "${{ github.event.issue.html_url }}"
     
     
 
