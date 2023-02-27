@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: echo "${{ github.event.issue.html_url }}"
+      - run: echo ${{ github.event.issue.html_url }}
     
     
 
