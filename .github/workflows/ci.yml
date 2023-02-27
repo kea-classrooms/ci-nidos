@@ -1,10 +1,10 @@
 name: GitHub Classroom Workflow
 
-on:
+on: 
   push: 
     branches:
-      - master
-      - issue/* 
+      -'**'
+
 
 permissions:
   checks: write
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     
 
-    if: github.ref == 'refs/heads/issue-*' # Only run for issue branches haalp 
+    if: github.ref == 'refs/heads/issue-*' # Only run for issue branches
     
     steps:
     - uses: actions/checkout@v2
