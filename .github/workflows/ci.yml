@@ -1,1 +1,18 @@
+name: GitHub Classroom Workflow
 
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  mainline:
+    name: Autograding
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "The key is" \\${{ github.sha }} 
+
+  
