@@ -23,6 +23,10 @@ jobs:
     name: 'Verify issue'
     steps:
       - uses: actions/checkout@v2
+
+      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+          env:
+            ISSUE: ${{ github.event.issue.html_url }}
     
     
 
