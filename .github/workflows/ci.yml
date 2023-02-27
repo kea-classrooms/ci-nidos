@@ -28,7 +28,7 @@ jobs:
       - run: echo $ISSUE 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+          ISSUE: ${{ github.event.issue }}
         
        
     
