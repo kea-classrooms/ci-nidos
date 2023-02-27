@@ -16,6 +16,7 @@ jobs:
       - run: echo "The key is" \\${{ github.sha }} 
 
   verify_issue:
+    name: Autograding2
     runs-on: ubuntu-latest
     
     if: startsWith(github.ref, 'refs/heads/issue/') # Only run for issue branches
