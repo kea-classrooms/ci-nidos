@@ -25,7 +25,10 @@ jobs:
     name: 'Verify issue'
     steps:
       - uses: actions/checkout@v2
-      - run: echo "URL:" \\${{ github.event.issue.html_url }}
+      - run: echo $ISSUE 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.html_url }}
         
        
     
