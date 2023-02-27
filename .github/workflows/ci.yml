@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     
 
-    if: github.ref == 'refs/heads/issue-*' # Only run for issue branches
+    if: github.ref == 'refs/heads/issue-*' # Only run for issue branches haalp 
     
     steps:
     - uses: actions/checkout@v2
