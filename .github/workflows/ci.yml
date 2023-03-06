@@ -22,8 +22,8 @@ jobs:
     
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v2
-      run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+      uses: actions/checkout@v2
+    - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
       env:
         ISSUE: ${{ github.event.issue.html_url }}
     - name: Check merge conflicts
