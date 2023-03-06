@@ -27,6 +27,6 @@ jobs:
       env:
         ISSUE: ${{ github.event.issue.html_url }}
     - name: Check merge conflicts
-    - run: git merge --no-commit --no-ff master
+      run: git merge --no-commit --no-ff master
 
   
