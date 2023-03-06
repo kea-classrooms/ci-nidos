@@ -18,7 +18,7 @@ jobs:
   verify_issue:
     runs-on: ubuntu-latest
     
-    if: startsWith(github.ref, 'refs/heads/issue/') # Only run for issue branches
+    if: startsWith(github.ref, 'refs/heads/issue') # Only run for issue branches
     
     steps:
     - name: Checkout code
